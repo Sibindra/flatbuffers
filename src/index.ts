@@ -1,4 +1,4 @@
-import flatbuffers from "flatbuffers";
+import { Builder } from "flatbuffers";
 import {
   Color,
   Equipment,
@@ -8,7 +8,7 @@ import {
 } from "../_generated/game/sample";
 
 function main() {
-  const builder = new flatbuffers.Builder(1024);
+  const builder = new Builder(1024);
 
   //   Weapons
   const sword = Weapon.createWeapon(builder, builder.createString("Sword"), 3);
@@ -32,11 +32,9 @@ function main() {
     orc_path_vector // pathOffset
   );
 
-  builder.finish(orc);
-  const buf = builder.asUint8Array();
-  const monster = Monster.getRootAsMonster(new flatbuffers.ByteBuffer(buf));
 
-  console.log(monster.hp());
+  const res = builder.finish(orc);
+  console.log("res:", res)
 }
 
 main();
