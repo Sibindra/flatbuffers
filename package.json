@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "npx tsx src/index.ts",
+    "build": "tsx build",
+    "flat:build": "flatc --ts -o ./_generated"
+  },
+  "dependencies": {
+    "flatbuffers": "^24.3.25",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

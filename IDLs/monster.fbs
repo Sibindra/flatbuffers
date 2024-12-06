@@ -1,0 +1,29 @@
+namespace Game.Sample;
+
+enum Color:byte { Red = 0, Green, Blue = 2 }
+
+union Equipment { Weapon }
+
+struct Vec3 {
+    x: float;
+    y: float;
+    z: float;
+}
+
+table Monster {
+    pos: Vec3;
+    hp:short = 100;
+    mana:short = 150;
+    color:Color = Blue;
+    friendly:bool = false (deprecated);
+    weapons:[Weapon];
+    equipped:Equipment;
+    path:[Vec3];
+}
+
+table Weapon {
+    name: string;
+    damage:int16 = 20;
+}
+
+root_type Monster;
